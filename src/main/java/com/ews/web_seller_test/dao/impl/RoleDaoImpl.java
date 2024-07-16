@@ -2,7 +2,6 @@ package com.ews.web_seller_test.dao.impl;
 
 import com.ews.web_seller_test.dao.MyDAO;
 import com.ews.web_seller_test.dao.RoleDao;
-import com.ews.web_seller_test.model.Product;
 import com.ews.web_seller_test.model.Role;
 
 import java.sql.ResultSet;
@@ -27,7 +26,7 @@ public class RoleDaoImpl extends MyDAO implements RoleDao {
 
     @Override
     public void editRole(Role newRole) {
-        String sql = "UPDATE Role SET role_name=?, description=?, updated_at=GETDATE() WHERE id=?";
+        String sql = "UPDATE Role SET role_name=?, description=?, updated_at=NOW() WHERE id=?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, newRole.getRole_name());
@@ -79,11 +78,11 @@ public class RoleDaoImpl extends MyDAO implements RoleDao {
 
     @Override
     public List<Role> getAllRole() {
-        List<Role> roles = new ArrayList<Role>();
+        List<Role> roles = new ArrayList<>();
         String sql = "SELECT * FROM Role";
         try {
             ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Role role = new Role();
                 role.setId(rs.getInt("id"));
@@ -108,7 +107,7 @@ public class RoleDaoImpl extends MyDAO implements RoleDao {
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, "%" + roleName + "%");
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             while (rs.next()) {
                 Role role = new Role();
                 role.setId(rs.getInt("id"));

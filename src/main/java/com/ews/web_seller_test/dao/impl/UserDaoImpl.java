@@ -12,11 +12,11 @@ import java.util.List;
 
 public class UserDaoImpl extends MyDAO implements UserDao {
     RoleService roleService = new RoleServiceImpl();
+
     @Override
     public void insertUser(User user) {
-//        int roleId = 0;
-        xSql = "INSERT INTO [User] (full_name, email, phone, address, username, password, gender, avatar, role_id, created_at, updated_at) " +
-                "VALUES (?,?,?,?,?,?,?,?,?,GETDATE(),GETDATE())";
+        xSql = "INSERT INTO User (full_name, email, phone, address, username, password, gender, avatar, role_id, created_at, updated_at) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,NOW(),NOW())";
 
         try {
             ps = con.prepareStatement(xSql);
@@ -29,27 +29,17 @@ public class UserDaoImpl extends MyDAO implements UserDao {
             ps.setString(6, user.getPassword());
             ps.setString(7, user.getGender());
             ps.setString(8, "default.jpg");
-//            try {
-//                if(user.getRole().getId() == 1) {
-//                    roleId = 1;
-//                } else {
-//                    roleId = 2;
-//                }
-//            } catch (Exception e) {
-//                roleId = 2;
-//            }
-//            ps.setInt(9, roleId);
             ps.setInt(9, 2);
             ps.executeUpdate();
             ps.close();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void editUser(User user) {
-        xSql = "UPDATE [User] SET full_name= ?, email = ?, phone = ?, address = ?, username = ?, password = ?, gender = ?, avatar = ?, role_id = ?, updated_at = GETDATE() WHERE id = ?";
+        xSql = "UPDATE User SET full_name= ?, email = ?, phone = ?, address = ?, username = ?, password = ?, gender = ?, avatar = ?, role_id = ?, updated_at = NOW() WHERE id = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, user.getFull_name());
@@ -64,27 +54,27 @@ public class UserDaoImpl extends MyDAO implements UserDao {
             ps.setInt(10, user.getId());
             ps.executeUpdate();
             ps.close();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void deleteUser(int id) {
-        xSql = "DELETE FROM [User] WHERE id = ?";
+        xSql = "DELETE FROM User WHERE id = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setInt(1, id);
             ps.executeUpdate();
             ps.close();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public User getUser(String username) {
-        xSql = "SELECT * FROM [User] WHERE username = ?";
+        xSql = "SELECT * FROM User WHERE username = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, username);
@@ -111,7 +101,7 @@ public class UserDaoImpl extends MyDAO implements UserDao {
 
     @Override
     public User getUser(int id) {
-        xSql = "SELECT * FROM [User] WHERE id = ?";
+        xSql = "SELECT * FROM User WHERE id = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setInt(1, id);
@@ -139,7 +129,7 @@ public class UserDaoImpl extends MyDAO implements UserDao {
     @Override
     public List<User> getAllUser() {
         List<User> userList = new ArrayList<>();
-        xSql = "SELECT * FROM [User]";
+        xSql = "SELECT * FROM User";
         try {
             ps = con.prepareStatement(xSql);
             rs = ps.executeQuery();
@@ -168,7 +158,7 @@ public class UserDaoImpl extends MyDAO implements UserDao {
     @Override
     public List<User> searchUser(String username) {
         List<User> userList = new ArrayList<>();
-        xSql = "SELECT * FROM [User] WHERE username LIKE ?";
+        xSql = "SELECT * FROM User WHERE username LIKE ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, "%" + username + "%");
@@ -197,7 +187,7 @@ public class UserDaoImpl extends MyDAO implements UserDao {
 
     @Override
     public boolean checkExistEmail(String email) {
-        xSql = "SELECT * FROM [User] WHERE email = ?";
+        xSql = "SELECT * FROM User WHERE email = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, email);
@@ -210,7 +200,7 @@ public class UserDaoImpl extends MyDAO implements UserDao {
 
     @Override
     public boolean checkExistUsername(String username) {
-        xSql = "SELECT * FROM [User] WHERE username = ?";
+        xSql = "SELECT * FROM User WHERE username = ?";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, username);
