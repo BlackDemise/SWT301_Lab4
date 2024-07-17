@@ -12,7 +12,7 @@ class LoginControllerTest extends TestDriver {
     @Test
     void testLoginTitle() {
         ChromeDriver driver = getDriver();
-        driver.get("http://localhost:8080/web_seller_test_war_exploded/login");
+        driver.get("http://localhost:9999/web_seller_test_war_exploded/login");
         String actualTitle = driver.getTitle();
         String expectedTitle = "Login";
         driver.close();
@@ -22,12 +22,12 @@ class LoginControllerTest extends TestDriver {
     @Test
     void testLoginFailed() {
         ChromeDriver driver = getDriver();
-        driver.get("http://localhost:8080/web_seller_test_war_exploded/login");
+        driver.get("http://localhost:9999/web_seller_test_war_exploded/login");
 
         WebElement username = driver.findElement(By.name("username"));
-        username.sendKeys("admin");
+        username.sendKeys("a");
         WebElement password = driver.findElement(By.name("password"));
-        password.sendKeys("admin");
+        password.sendKeys("a");
 
         driver.findElement(By.id("loginBtn")).click();
 
