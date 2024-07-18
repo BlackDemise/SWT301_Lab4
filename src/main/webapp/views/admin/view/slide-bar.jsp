@@ -7,7 +7,7 @@
 		<ul class="nav" id="main-menu">
 			<li><a href="${pageContext.request.contextPath }/admin/user/list" style="padding-left: 20px;"><i class="fa fa-user"></i>User</a></li>
 			<li><a href="${pageContext.request.contextPath }/admin/product/list" style="padding-left: 20px;"><i class="fa fa-desktop"></i>Product</a></li>
-			<li><a href="${pageContext.request.contextPath }/admin/category/list" style="padding-left: 20px;"><i class="fa fa-archive"></i>Category</a></li>
+			<li><a href="${pageContext.request.contextPath }/admin/category/list" style="padding-left: 20px;" id="btn-category"><i class="fa fa-archive"></i>Category</a></li>
 			<li><a href="${pageContext.request.contextPath }/admin/order/list" style="padding-left: 20px;"><i class="fa fa-qrcode" ></i>Order</a></li>
 		</ul>
 	</div>

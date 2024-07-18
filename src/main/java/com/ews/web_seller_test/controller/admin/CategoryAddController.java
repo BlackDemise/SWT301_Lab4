@@ -1,6 +1,8 @@
 package com.ews.web_seller_test.controller.admin;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.ews.web_seller_test.model.Category;
@@ -53,6 +55,8 @@ public class CategoryAddController extends HttpServlet {
         Category category = new Category();
         CategoryService cateService = new CategoryServiceImpl();
         category.setName(name);
+        category.setCreated_at(Date.valueOf(LocalDate.now()));
+        category.setUpdated_at(Date.valueOf(LocalDate.now()));
         cateService.insertCategory(category);
         response.sendRedirect(request.getContextPath() + "/admin/category/list");
     }

@@ -11,16 +11,21 @@ import java.util.List;
 
 public class CategoryDaoImpl extends MyDAO implements CategoryDao {
     @Override
-    public void insertCategory(Category category) {
-        xSql = "INSERT INTO Category(name) VALUES (?)";
+    public boolean insertCategory(Category category) {
+        int rowAffected = 0;
+        xSql = "INSERT INTO Category(name, created_at, updated_at) VALUES (?, ?, ?)";
         try {
             ps = con.prepareStatement(xSql);
             ps.setString(1, category.getName());
-            ps.executeUpdate();
+            ps.setDate(2, new java.sql.Date(category.getCreated_at().getTime()));
+            ps.setDate(3, new java.sql.Date(category.getUpdated_at().getTime()));
+            rowAffected = ps.executeUpdate();
             ps.close();
+            return rowAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     @Override

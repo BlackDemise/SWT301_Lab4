@@ -1,7 +1,7 @@
 package com.ews.web_seller_test.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class Category implements Serializable {
     private int id;

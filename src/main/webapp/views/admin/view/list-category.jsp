@@ -40,7 +40,7 @@
 				<div class="row">
 				<div>
 					<button class="btn-primary" style="width: 260px;border: none;border-radius: 3px;height: 30px;margin-bottom: 20px;"
-					 onclick="window.location.href='<c:url value='/admin/category/add'/>';">New Category</button>
+					 onclick="window.location.href='<c:url value='/admin/category/add'/>';" id="btn-new-category">New Category</button>
 				</div>
 					<div class="col-md-12">
 						<!-- Advanced Tables -->
@@ -66,7 +66,7 @@
 														href="<c:url value='/product/category?indexPage=1&txtSearch=${cat.name}'/>"
 														class="center">Detail</a> | <a
 														href="<c:url value='/admin/category/edit?id=${cat.id }'/>"
-														class="center">Edit</a>
+														class="center" id="btn-edit-${cat.id}">Edit</a>
 														| <a
 														href="<c:url value='/admin/category/delete?id=${cat.id }'/>"
 														class="center">Delete</a></td>

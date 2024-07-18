@@ -11,14 +11,18 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryDao categoryDao = new CategoryDaoImpl();
     @Override
     public void insertCategory(Category category) {
-        categoryDao.insertCategory(category);
+        if (!category.getName().isEmpty()) {
+            categoryDao.insertCategory(category);
+        }
     }
 
     @Override
     public void editCategory(Category newCategory) {
         Category oldCate = categoryDao.getCategory(newCategory.getId());
-        oldCate.setName(newCategory.getName());
-        categoryDao.editCategory(oldCate);
+        if (!newCategory.getName().isEmpty()) {
+            oldCate.setName(newCategory.getName());
+            categoryDao.editCategory(oldCate);
+        }
     }
 
     @Override

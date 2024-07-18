@@ -44,7 +44,7 @@
 												<label for="name">Category Name:</label>
 												<input id="name" name="cate_name" class="form-control" placeholder="Enter category name" />
 											</div>
-											<button type="submit" class="btn btn-primary">Create</button>
+											<button type="submit" class="btn btn-primary" id="btn-create">Create</button>
 											<button type="reset" class="btn btn-warning" >Reset</button>
 										</form>
 									</div>
