@@ -106,7 +106,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">${name}</div>
+                    <div id="nameuser" class="col-lg-9 col-md-8">${name}</div>
                   </div>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">User Account</div>
@@ -145,17 +145,17 @@
                   <c:set value="${requestScope.user.getEmail()}" var="gmail"/>
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">${address}</div>
+                    <div id="addressuser" class="col-lg-9 col-md-8">${address}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">${phone}</div>
+                    <div id="phoneuser" class="col-lg-9 col-md-8">${phone}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">${gmail}</div>
+                    <div id="emailuser" class="col-lg-9 col-md-8">${gmail}</div>
                   </div>
 
                 </div>
