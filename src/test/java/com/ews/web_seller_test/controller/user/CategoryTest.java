@@ -1,4 +1,4 @@
-package com.ews.web_seller_test.controller.user.category;
+package com.ews.web_seller_test.controller.user;
 
 import com.ews.web_seller_test.dao.impl.CategoryDaoImpl;
 import com.ews.web_seller_test.model.Category;

@@ -91,7 +91,7 @@ public class UserAddController extends HttpServlet {
 //            alertMsg = "System error!";
 //            request.setAttribute("alert", alertMsg);
 //            request.getRequestDispatcher(Constant.Path.REGISTER).forward(request,response);
-            response.sendRedirect(request.getContextPath() + "/admin/user/add?e=1");
+            response.sendRedirect(request.getContextPath() + "/admin/user/list");
         }
 
 

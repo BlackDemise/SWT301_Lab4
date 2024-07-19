@@ -38,6 +38,7 @@
             <div class="row">
                 <div>
                     <button class="btn-primary"
+                            id = "btn-user-add"
                             style="width: 260px;border: none;border-radius: 3px;height: 30px;margin-bottom: 20px;"
                             onclick="window.location.href='<c:url value='/admin/user/add'/>';">New User
                     </button>

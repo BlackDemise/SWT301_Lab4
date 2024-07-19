@@ -80,8 +80,8 @@
 <%--                                                <label><input type="radio" value="2" name="role" checked/>Client User</label>--%>
 <%--                                            </div>--%>
 <%--                                        </div>--%>
-                                        <button type="submit" class="btn btn-primary">Create</button>
-                                        <button type="reset" class="btn btn-warning">Reset</button>
+                                        <button type="submit" id='btn-create' class="btn btn-primary">Create</button>
+                                        <button type="reset" id='btn-reset' class="btn btn-warning">Reset</button>
                                     </form>
                                 </div>
                             </div>
